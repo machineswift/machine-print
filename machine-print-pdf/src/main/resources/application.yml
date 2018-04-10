@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 8080
+  tomcat:
+    uri-encoding : UTF-8
+spring:
+  messages:
+    basename: i18n/messages  
+  http:
+    encoding:
+      force: true
+      enabled : true
+      charset : UTF-8
+  profiles: dev      
+---    
+server:
+  port: 8080
+  tomcat:
+    uri-encoding : UTF-8
+spring:
+  messages:
+    basename: i18n/messages  
+  http:
+    encoding:
+      force: true
+      enabled : true
+      charset : UTF-8
+  profiles: beta
+---
+server:
+  port: 8080
+  tomcat:
+    uri-encoding : UTF-8
+spring:
+  messages:
+    basename: i18n/messages  
+  http:
+    encoding:
+      force: true
+      enabled : true
+      charset : UTF-8
+  profiles: product  

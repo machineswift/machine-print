@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<title>电子秤demo</title>
+<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+	<form>
+		weight:<input type="text" name="weight" id="weight" />
+	</form>
+	<br> [本地所有的端口] http://localhost:8090/elescale/commPortNames
+	<br> [测试对应的端口是否可用]  http://localhost:8090/elescale/serialPort?name=COM1
+	<br> [查看参数信息]  http://localhost:8090/elescale/info
+	<br> [是否反转] http://localhost:8090/elescale/reverse
+	<br> [缩放比例] http://localhost:8090/elescale/divisor?divisor=10
+	<br> [保留小数位] http://localhost:8090/elescale/scale?scale=2
+</body>
+<script type="text/javascript">
+	$(function() {
+		var time = 500;
+		var interval;
+		function run() {
+			interval = setInterval(fun, time);
+		}
+		function fun() {
+			$.ajax({
+				type : 'get',
+				dataType : 'jsonp',
+				jsonp : "callback",
+				url : 'http://localhost:8090/elescale/weight',
+				success : function(data) {
+					$('#weight').attr("value", data.weight);
+				},
+				error : function(err) {
+					console.log(err);
+				}
+			});
+		};
+		run();
+	});
+</script>
+</html>

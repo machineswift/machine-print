@@ -1,0 +1,1 @@
+.\jdk1.8.0_66\bin\java -jar machine-elescale-wired.jar --spring.profiles.active=beta  --ELESCALE.reverse=false  --ELESCALE.scale=4  --ELESCALE.divisor=1000

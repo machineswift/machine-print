@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>顺丰打印单</title>
+<style type="text/css">
+body {
+	width: 480px;
+	background-color: #fff;
+	color: #333;
+	font-family: Tahoma;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6, p, th, td, ul, ol, textarea, input, button {
+	margin: 0;
+	padding: 0;
+}
+
+.page {
+	width: 500px;
+	height: 900px;
+	border: 1px solid #bfbfbf;
+	margin: 2px auto 0;
+	padding: 0 5px;
+	overflow: hidden;
+	padding-bottom: 5px;
+}
+
+.top-blank {
+	height: 10px;
+}
+
+.top_page {
+	width: 500px;
+	height: 580px;
+	border-bottom: 1px solid #bfbfbf;
+}
+
+.bottom_page {
+	width: 500px;
+	height: 260px;
+}
+
+.b {
+	overflow: hidden;
+	border: 1px solid #bfbfbf;
+}
+
+ul {
+	list-style: none;
+}
+
+.m1 {
+	height: 55px;
+	position: relative;
+}
+
+.m1 img {
+	position: absolute;
+	top: 20px;
+	width: 70px;
+}
+
+.m1 .img1 {
+	left: 3px;
+}
+
+.m1 .img2 {
+	right: 1px;
+}
+
+.m1 p {
+	position: absolute;
+	top: 0;
+	margin: 0;
+	right: 75px;
+	height: 65px;
+	line-height: 60px;
+	font-size: 50px;
+	font-family: "黑体";
+	text-align: center;
+}
+
+.m2 {
+	height: 90px;
+}
+
+.m2 .left {
+	width: 350px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+}
+
+.m2 .left img {
+	display: block;
+	width: 350px;
+	height: 60px;
+	margin: 8px auto 4px;
+}
+
+.m2 .left p {
+	font-size: 13px;
+	text-align: center;
+	font-family: arial;
+}
+
+.m2 .right {
+	width: 140px;
+	height: 100%;
+	float: right;
+}
+
+.m2 .right p {
+	font-size: 30px;
+	text-align: center;
+	margin-top: 24px;
+}
+
+.m3, .m4, .m5 {
+	height: 65px;
+}
+
+.m3 .left, .m4 .left, .m5 .left {
+	width: 20px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 12px;
+}
+
+.m3 .left p, .m4 .left p, .m5 .left p {
+	margin-top: 7px;
+	margin-left: 5px;
+}
+
+.m3 .right, .m4 .right, .m5 .right {
+	float: left;
+	width: 470px;
+	height: 100%;
+}
+
+.m3 .right p {
+	font-size: 66px;
+	line-height: 55px;
+	margin-left: 5px;
+}
+
+.m4 .right p, .m5 .right p {
+	font-size: 15px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.m6 {
+	height: 50px;
+}
+
+.m6 .left {
+	float: left;
+	width: 385px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	position: relative;
+}
+
+.m6  .left  ul {
+	width: 190px;
+	float: left;
+	margin-top: 5px;
+	white-space: nowrap;
+	white-space: nowrap;
+}
+
+.m6 .right {
+	float: left;
+	width: 110px;
+	height: 100%;
+}
+
+.m6 .right p {
+	font-size: 17px;
+	margin-top: 15px;
+	margin-left: 5px;
+}
+
+.m7 {
+	height: 110px;
+	position: relative;
+}
+
+.m7 .left {
+	width: 20px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 15px;
+}
+
+.m7 .left p {
+	margin-top: 10px;
+	margin-left: 2px;
+}
+
+.m7 .right {
+	float: left;
+	width: 460px;
+	height: 100%;
+	font-size: 15px;
+	margin-left: 10px;
+	margin-top: 2px;
+}
+
+.m8 {
+	height: 64px;
+}
+
+.m8 .left {
+	width: 20px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 15px;
+}
+
+.m8 .left p, .m8 .left2 p {
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+.m8 .left2 {
+	width: 260px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 15px;
+}
+
+.m8 .right1 {
+	width: 114px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 12px;
+}
+
+.m8 .right2 {
+	width: 100px;
+	height: 100%;
+	float: left;
+	font-size: 12px;
+	position: relative;
+}
+
+.m8 .right2 .p2 {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.m8 .right2 .p2 span {
+	padding-left: 17px;
+}
+
+.item1 {
+	height: 75px;
+}
+
+.item1 .left {
+	width: 110px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+}
+
+.item1 .left img {
+	width: 70px;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.item1 .left .img1 {
+	margin-top: 10px;
+}
+
+.item1 .right {
+	width: 353px;
+	height: 100%;
+	float: left;
+}
+
+.item1 .right img {
+	width: 300px;
+	height: 45px;
+	display: block;
+	margin: 8px auto 4px;
+}
+
+.item1 .right p {
+	font-size: 13px;
+	text-align: center;
+}
+
+.item1 .right p span {
+	font-family: arial;
+}
+
+.item2, .item3 {
+	height: 55px;
+}
+
+.item2 .left, .item3 .left {
+	width: 20px;
+	height: 100%;
+	border-right: 1px solid #bfbfbf;
+	float: left;
+	font-size: 12px;
+}
+
+.item2 .left p, .item3 .left p {
+	margin-top: 7px;
+	margin-left: 5px;
+}
+
+.item2 .right {
+	float: left;
+	width: 370px;
+	height: 100%;
+}
+
+.item2 .timer {
+	border-left: 1px solid #bfbfbf;
+	float: left;
+	width: 100px;
+	height: 100%;
+}
+
+.item2 .timer p {
+	text-align: center;
+}
+
+.item3 .right {
+	float: left;
+	width: 470px;
+	height: 100%;
+}
+
+.item2 .right p, .item3 .right p {
+	font-size: 12px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.itme4 {
+	height: 120px
+}
+
+.item-last {
+	border-bottom: none;
+}
+</style>
+</head>
+<body>
+	<div class="page">
+		<div class="top-blank"></div>
+		<div class="top_page">
+			<div class="m1 b">
+				<img src="${elePrintVoSF.img.logoImg}" class="img1">
+				<div
+					style="font-size: 50px; text-align: center; line-height: 55px; font-weight: bold;">${elePrintVoSF.recipienter.provice}</div>
+				<img src="${elePrintVoSF.img.telImg}" class="img2">
+				<!-- <p>E加急</p> -->
+				<p></p>
+			</div>
+			<div class="m2 b">
+				<div class="left">
+					<img height="60" width="400" src="${elePrintVoSF.img.barcodeImg}">
+					<p>
+						运单号<span>${elePrintVoSF.eleSheetNo}</span>
+					</p>
+				</div>
+				<div class="right ">
+					<p>${elePrintVoSF.expressType}</p>
+				</div>
+			</div>
+			<div class="m3 b">
+				<div class="left">
+					<p>目的地</p>
+				</div>
+				<div class="right">
+					<p>${elePrintVoSF.destination.destination}</p>
+				</div>
+			</div>
+			<div class="m4 b">
+				<div class="left">
+					<p>收件人</p>
+				</div>
+				<div class="right">
+					<p>${elePrintVoSF.recipienter.name}
+						${elePrintVoSF.recipienter.telephone}
+						${elePrintVoSF.recipienter.mobilePhone}</p>
+					<p>${elePrintVoSF.recipienter.provice}
+						${elePrintVoSF.recipienter.city} ${elePrintVoSF.recipienter.area}
+						${elePrintVoSF.recipienter.detailAddress}</p>
+				</div>
+			</div>
+			<div class="m5 b">
+				<div class="left">
+					<p>寄件人</p>
+				</div>
+				<div class="right">
+					<p>${elePrintVoSF.sender.name} ${elePrintVoSF.sender.telephone}
+						${elePrintVoSF.sender.mobilePhone}</p>
+					<p>${elePrintVoSF.sender.provice} ${elePrintVoSF.sender.city}
+						${elePrintVoSF.sender.area} ${elePrintVoSF.sender.detailAddress}</p>
+				</div>
+			</div>
+			<div class="m6 b">
+				<div class="left">
+					<ul>
+						<li>付款方式:${elePrintVoSF.paymentDetail.paymentMethod}</li>
+						<li>月结账号:${elePrintVoSF.paymentDetail.monthlyAccount}</li>
+					</ul>
+					<ul>
+						<li>实际重量:${elePrintVoSF.paymentDetail.billingWeight}</li>
+					</ul>
+				</div>
+				<div class="right">
+					<p>转寄协议客户</p>
+				</div>
+			</div>
+			<div class="m7 b">
+				<div class="left">
+					<p>托寄物</p>
+				</div>
+				<div class="right">
+					${elePrintVoSF.entrustedGoods.entrustedGoods}</div>
+			</div>
+			<div class="m8 b">
+				<div class="left">
+					<p>备注</p>
+				</div>
+				<div class="left2">
+					<p>${elePrintVoSF.remarks.remarks}</p>
+				</div>
+				<div class="right1">
+					<ul>
+						<li>收件员:${elePrintVoSF.recipientSendInf.collector}</li>
+						<li>收件日期:${elePrintVoSF.recipientSendInf.receiptDate}</li>
+						<li>派件员:${elePrintVoSF.recipientSendInf.dispatchClerk}</li>
+					</ul>
+				</div>
+				<div class="right2">
+					<p>签名：</p>
+					<p class="p2">
+						月<span>日</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bottom_page">
+			<div class="item1 b">
+				<div class="left">
+					<img class="img1" src="${elePrintVoSF.img.logoImg}"> <img
+						src="${elePrintVoSF.img.telImg}">
+				</div>
+				<div class="right">
+					<img height="50" src="${elePrintVoSF.img.barcodeImg}">
+					<p>
+						运单号<span>${elePrintVoSF.eleSheetNo}</span>
+					</p>
+				</div>
+			</div>
+			<div class="item2 b">
+				<div class="left">
+					<p>寄件人</p>
+				</div>
+				<div class="right">
+					<p>${elePrintVoSF.sender.name} ${elePrintVoSF.sender.telephone}
+						${elePrintVoSF.sender.mobilePhone}</p>
+					<p>${elePrintVoSF.sender.provice} ${elePrintVoSF.sender.city}
+						${elePrintVoSF.sender.area} ${elePrintVoSF.sender.detailAddress}</p>
+				</div>
+				<div class="timer" onload="startTime()">
+					<span id="timernow">2016/12/21 上午12:00:00</span>
+				</div>
+			</div>
+			<div class="item3 b">
+				<div class="left">
+					<p>收件人</p>
+				</div>
+				<div class="right">
+					<p>${elePrintVoSF.recipienter.name}
+						${elePrintVoSF.recipienter.telephone}
+						${elePrintVoSF.recipienter.mobilePhone}</p>
+					<p>${elePrintVoSF.recipienter.provice}
+						${elePrintVoSF.recipienter.city} ${elePrintVoSF.recipienter.area}
+						${elePrintVoSF.recipienter.detailAddress}</p>
+				</div>
+			</div>
+			<div class="itme4 b">${elePrintVoSF.customLocale.customLocale}
+			</div>
+		</div>
+	</div>
+	<div
+		style="font-weight: bold; text-align: left; width: 215px; display: inline-block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${elePrintVoSF.advertisement}</div>
+	<span style="width: 1px; height: 20px; border: 1px solid #bfbfbf;"></span>
+	<div
+		style="font-weight: bold; text-align: center; width: 165px; display: inline-block; overflow: hidden; white-space: nowrap;">${elePrintVoSF.wareDocCode}</div>
+	<span style="width: 1px; height: 20px; border: 1px solid #bfbfbf;"></span>
+	<div
+		style="font-weight: bold; text-align: right; width: 70px; display: inline-block; overflow: hidden; white-space: nowrap;">${elePrintVoSF.countIndex}</div>
+</body>
+<script type="text/javascript">
+//对Date的扩展，将 Date 转化为指定格式的String
+//月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+//年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+//例子： 
+//(new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+//(new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+Date.prototype.Format = function (fmt) { //author: meizz 
+ var o = {
+     "M+": this.getMonth() + 1, //月份 
+     "d+": this.getDate(), //日 
+     "h+": this.getHours(), //小时 
+     "m+": this.getMinutes(), //分 
+     "s+": this.getSeconds(), //秒 
+     "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+     "S": this.getMilliseconds() //毫秒 
+ };
+ if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+ for (var k in o)
+ if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+ return fmt;
+}
+
+timernow.innerHTML=new Date().Format("yyyy-MM-dd hh:mm:ss"); 
+
+watermark({ watermark_txt: "${elePrintVoSF.entrustedGoods.watermark}" })//传入动态水印内容
+function watermark(settings) {
+	//默认设置
+	var defaultSettings={
+			watermark_txt:"text",
+			watermark_x:50,//水印起始位置x轴坐标
+			watermark_y:30,//水印起始位置Y轴坐标
+			watermark_rows:1,//水印行数
+			watermark_cols:2,//水印列数
+			watermark_x_space:30,//水印x轴间隔
+			watermark_y_space:50,//水印y轴间隔
+			watermark_color:'#000000',//水印字体颜色
+			watermark_alpha:0.4,//水印透明度
+			watermark_fontsize:'20px',//水印字体大小
+			watermark_font:'微软雅黑',//水印字体
+			watermark_width:180,//水印宽度
+			watermark_height:80,//水印长度
+			watermark_angle:20//水印倾斜度数
+	};
+	//采用配置项替换默认值，作用类似jquery.extend
+	if(arguments.length===1&&typeof arguments[0] ==="object" )
+	{
+			var src=arguments[0]||{};
+			for(key in src)
+			{
+					if(src[key]&&defaultSettings[key]&&src[key]===defaultSettings[key])
+							continue;
+					else if(src[key])
+							defaultSettings[key]=src[key];
+			}
+	}
+	var oTemp = document.createDocumentFragment();
+	//获取页面最大宽度
+	var page_width = Math.max(document.getElementsByClassName('m7')[0].scrollWidth,document.getElementsByClassName('m7')[0].clientWidth);
+	//获取页面最大长度
+	var page_height = Math.max(document.getElementsByClassName('m7')[0].scrollHeight,document.getElementsByClassName('m7')[0].clientHeight);
+	//如果将水印列数设置为0，或水印列数设置过大，超过页面最大宽度，则重新计算水印列数和水印x轴间隔
+	if (defaultSettings.watermark_cols == 0 ||
+ 　　　　(parseInt(defaultSettings.watermark_x
+　　　　+ defaultSettings.watermark_width *defaultSettings.watermark_cols
+　　　　+ defaultSettings.watermark_x_space * (defaultSettings.watermark_cols - 1))
+　　　　> page_width)) {
+			defaultSettings.watermark_cols =
+　　　　　　parseInt((page_width
+　　　　　　　　　　-defaultSettings.watermark_x
+　　　　　　　　　　+defaultSettings.watermark_x_space)
+　　　　　　　　　　/ (defaultSettings.watermark_width
+　　　　　　　　　　+ defaultSettings.watermark_x_space));
+			defaultSettings.watermark_x_space =
+　　　　　　parseInt((page_width
+　　　　　　　　　　- defaultSettings.watermark_x
+　　　　　　　　　　- defaultSettings.watermark_width
+　　　　　　　　　　* defaultSettings.watermark_cols)
+　　　　　　　　　　/ (defaultSettings.watermark_cols - 1));
+	}
+	//如果将水印行数设置为0，或水印行数设置过大，超过页面最大长度，则重新计算水印行数和水印y轴间隔
+	if (defaultSettings.watermark_rows == 0 ||
+ 　　　　(parseInt(defaultSettings.watermark_y
+　　　　+ defaultSettings.watermark_height * defaultSettings.watermark_rows
+　　　　+ defaultSettings.watermark_y_space * (defaultSettings.watermark_rows - 1))
+　　　　> page_height)) {
+			defaultSettings.watermark_rows =
+　　　　　　parseInt((defaultSettings.watermark_y_space
+　　　　　　　　　　　+ page_height - defaultSettings.watermark_y)
+　　　　　　　　　　　/ (defaultSettings.watermark_height + defaultSettings.watermark_y_space));
+			defaultSettings.watermark_y_space =
+　　　　　　parseInt((page_height
+　　　　　　　　　　- defaultSettings.watermark_y
+　　　　　　　　　　- defaultSettings.watermark_height
+　　　　　　　　　　* defaultSettings.watermark_rows)
+　　　　　　　　　/ (defaultSettings.watermark_rows - 1));
+	}
+	var x;
+	var y;
+	for (var i = 0; i < defaultSettings.watermark_rows; i++) {
+			y = defaultSettings.watermark_y + (defaultSettings.watermark_y_space + defaultSettings.watermark_height) * i;
+			for (var j = 0; j < defaultSettings.watermark_cols; j++) {
+					x = defaultSettings.watermark_x + (defaultSettings.watermark_width + defaultSettings.watermark_x_space) * j;
+
+					var mask_div = document.createElement('div');
+					mask_div.id = 'mask_div' + i + j;
+					mask_div.appendChild(document.createTextNode(defaultSettings.watermark_txt));
+					//设置水印div倾斜显示
+					mask_div.style.webkitTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.MozTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.msTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.OTransform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.transform = "rotate(-" + defaultSettings.watermark_angle + "deg)";
+					mask_div.style.visibility = "";
+					mask_div.style.position = "absolute";
+					mask_div.style.left = x + 'px';
+					mask_div.style.top = y + 'px';
+					mask_div.style.overflow = "hidden";
+					mask_div.style.zIndex = "9999";
+					//mask_div.style.border="solid #eee 1px";
+					mask_div.style.opacity = defaultSettings.watermark_alpha;
+					mask_div.style.fontSize = defaultSettings.watermark_fontsize;
+					mask_div.style.fontFamily = defaultSettings.watermark_font;
+					mask_div.style.color = defaultSettings.watermark_color;
+					mask_div.style.textAlign = "center";
+					mask_div.style.width = defaultSettings.watermark_width + 'px';
+					mask_div.style.height = defaultSettings.watermark_height + 'px';
+					mask_div.style.display = "block";
+					oTemp.appendChild(mask_div);
+			};
+	};
+	document.getElementsByClassName('m7')[0].appendChild(oTemp);
+}
+</script>
+</html>

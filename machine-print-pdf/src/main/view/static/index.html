@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>print</title>
+        
+        <!-- Our CSS stylesheet file -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <link rel="icon" type ="image/x-icon" href="./img/pig.ico"/>
+    </head>
+    
+    <body>
+
+		<div id="formContainer">
+			<form id="login" action="/login" method="post">
+				<a href="#" id="flipToRecover" class="flipLink">Forgot?</a>
+				<input type="text" name="loginEmail" id="loginEmail" value=""  placeholder="Email" />
+				<input type="password" name="loginPass" id="loginPass" value="" placeholder="pass"/>
+				<input type="submit" name="submit" value="Login" />
+			</form>
+			<form id="recover" method="post" action="./">
+				<a href="#" id="flipToLogin" class="flipLink">Forgot?</a>
+				<input type="text" name="recoverEmail" id="recoverEmail" value=""  placeholder="Email"/>
+				<input type="submit" name="submit" value="Recover" />
+			</form>
+		</div>
+
+        <footer>
+	        <h2><i>Tutorial:</i> Apple-like Login Form With CSS 3D Transforms</h2>
+            <a class="tzine" href="http://tutorialzine.com/2012/02/apple-like-login-form/">Head on to <i>Tutorial<b>zine</b></i> to download this example</a>
+        </footer>
+        
+        <!-- JavaScript includes -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="assets/js/script.js"></script>
+
+    </body>
+    
+</html>
+

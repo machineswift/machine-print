@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>打印机</title>
+<link rel="stylesheet" th:href="@{/css/printers.css}" />
+<script type="text/javascript"  th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript">
+	function clearQueue() {
+		var printerName = $('.navbody')[0].id;
+		$.ajax({
+			type : "POST",
+			url : "http://localhost:8080/print/clearQueue",
+			data : printerName,
+			dataType : "json",
+			contentType : 'application/json;charset=utf-8',
+			success : function(data, textStatus, jqXHR) {
+				$('.navbody')[0].innerHTML = "";
+			}
+		})
+	}
+</script>
+</head>
+<body>
+	<div class="contain">
+		<!-- 打印机banner -->
+		<nav>
+			<p style="text-align: center">打印机列表</p>
+			<ul class="machion"></ul>
+			<p style="text-align: center; margin-top: 72px; font-weight: bold;">
+				待打印列表 <input type="button" onclick="clearQueue()" value="清 空" />
+			</p>
+			<ul class="navbody" id=""></ul>
+		</nav>
+	</div>
+</body>
+<script type="text/javascript"  th:src="@{/js/printers.js}"></script>
+</html>
